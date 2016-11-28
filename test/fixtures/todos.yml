@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  desc: MyString
+  priority: MyString
+  deadline: 2016-10-21 15:21:38
+  reminder: 1
+  status: MyString
+  notify: MyString
+  notified: MyString
+
+two:
+  desc: MyString
+  priority: MyString
+  deadline: 2016-10-21 15:21:38
+  reminder: 1
+  status: MyString
+  notify: MyString
+  notified: MyString

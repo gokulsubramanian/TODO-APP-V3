@@ -1,0 +1,13 @@
+Welcome <%=@user.name%>
+<%=@user.email%>
+<%= link_to "edit", edit_user_path(@user) %>
+<%= link_to "delete",@user, method: :delete, data: { confirm: "You Sure?" }%>
+<%= link_to "sign out", signout_path, :method => :delete %>
+
+   <h4>Create New Task:</h4>
+    <!-- <%= link_to 'Add new Task', new_todo_path %> -->
+	 <%= render 'todo' %> 
+
+	 <% @user.todos.each |x| %>
+	 x.desc
+	 <%end%>

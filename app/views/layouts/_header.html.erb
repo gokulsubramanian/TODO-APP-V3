@@ -1,0 +1,30 @@
+ <header class="navbar navbar-fixed-top navbar-inverse">
+   <div class="container">
+     <nav>
+       <ul class="nav navbar-nav navbar-right"> 
+         <%if signed_in? %>
+         <li><%= link_to "Home", welcome_path %></li>
+         <%else %>
+         <li><%= link_to "Home",   root_path %></li>
+         <%end%>
+         <% if signed_in? %>
+           <li id="fat-menu" class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Account <b class="caret"></b>
+             </a>
+             <ul class="dropdown-menu">
+               <li><%= link_to "Open Tasks", show_open_tasks_path%></li>
+               <li><%= link_to "Completed Tasks", show_done_tasks_path%></li>
+               <li><%= link_to "Archived Tasks", show_archive_tasks_path%></li>
+               <li><%= link_to "Priority Tasks", show_priority_tasks_path%></li>
+               <li><%= link_to "Edit", edit_user_path(current_user) %> </li>
+               <li><%= link_to "Sign Out", signout_path, :method => :delete %></li>
+               </ul>
+               <%else%>
+               <li><%= link_to "Sign In", signin_path %></li>
+               <% end %> 
+         </li>
+       </ul>
+     </nav>
+   </div>
+ </header>

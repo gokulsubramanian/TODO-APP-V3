@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+function openPopup(link)
+{
+    link.hide();
+    window.open(link.href,'exam_dialog','toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=no');
+    return false;
+}
+</script>
+</head>
+<body>
+<b> Welcome </b><%=@user.name%>
+  <div class="row">
+    <div class="col-sm-6">
+    <h4>Create New Task:</h4>
+    <!-- <%= link_to 'Add new Task', new_todo_path %> -->
+	 <%= render 'form' %> 
+    </div>
+
+    <div class="col-sm-6 navside">
+  <h4>Today's Tasks</h4>
+  <ul> 
+  <% @task_list.each do |x| %>
+  <%= x.desc %><br>
+  <%end %>
+  	</ul>
+  <h4>Upcoming Tasks</h4>
+  <table>
+  <% count = 0 %>
+  <% @task_list.each do |x| %>
+  	<% if x.deadline.to_date > Date.today and count < 5 %>
+  	<tr>
+  	<td><%= x.deadline.strftime("%d/%m/%y")%> => </td>
+  	<td><i><%= x.desc %></i></td>
+    <% count = count + 1%>
+  	</tr>
+  	<%end%>
+  <%end %>
+  </table>
+  	</div>
+</body>
+</html>

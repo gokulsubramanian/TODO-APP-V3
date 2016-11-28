@@ -1,0 +1,18 @@
+<%= form_for(@user) do |t| %>
+<table>
+<tr>
+    <th><%= t.label :Name %></th>
+    <td><%= t.text_field :name %></td></tr>
+
+    <th><%= t.label :Email %></th>
+    <td><%= t.text_field :email %></td></tr>
+
+    <th><%= t.label :Password %></th>
+    <td><%= t.password_field :password %></td></tr>
+
+    <th><%= t.label :Password_Confirmation, "Confirmation" %></th>
+    <td><%= t.password_field :password_confirmation %></td></tr>
+
+  <tr><td><%= t.submit %></td></tr>
+  </table>
+<%end%>

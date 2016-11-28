@@ -1,0 +1,28 @@
+<div class="container">
+<h2>Archived Tasks</h2>
+Download:
+          <%= link_to "csv", show_archive_tasks_path( format: "csv") %>
+          <br>
+<%if @task.present? %>
+<table class="table table-striped">
+	<tr>
+	<th>Task List</th>
+	<th>Priority</th>
+	<th>Deadline</th>
+	<th></th>
+	</tr>
+<%@task.each do |t|%>
+<tr>
+<td><%= t.desc%></td>
+<td><%= t.priority %></td>
+<td><%= t.deadline.strftime("%d/%m/%y: %H:%M %a")%></td>
+<td><%= link_to 'Delete', t, method: :delete, data: { confirm: "You sure?" } %></td>
+</tr>
+<%end%>
+</table>
+<% else %>
+<%= "Uh Oh ! There are no Archived tasks" %><br>
+<%end%>
+</div>
+
+<%= will_paginate @task%>
